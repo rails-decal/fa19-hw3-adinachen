@@ -1,0 +1,8 @@
+<p>+---------------------------------------+</p>
+<%= form_with local: true, method: "post", url: "/cities/update" do |f| %>
+    <p>City: </p><%= f.text_field :name %>
+    <p>Population: </p><%= f.text_field :population %>
+    <p>Most Famous Landmark: </p><%= f.text_field :landmark %>
+    <p>Update <%= f.submit %></p>
+<% end %>
+<p>+---------------------------------------+</p>

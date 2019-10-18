@@ -1,0 +1,22 @@
+<%if params.has_key?(:city)%>
+    <% @city = $cities[params[:city].to_sym]%> 
+    <p>+---------------------------------------+</p>
+    <h1> <%= @city.name %> </h1>
+    <p>POPULATION:  <%= @city.population %> </p>
+    <p>LANDMARK:    <%= @city.landmark %></p>
+    <p>TEMPERATURE:    <%= (9.0/5) * (@city.weather[:temperature] - 273) + 32 %>℉ </p>
+    <b></b>
+    <p>+---------------------------------------+</p>
+<%elsif not @cities.nil? %>
+    <% @cities.each do |city| %>
+        <p>+---------------------------------------+</p>
+        <h1> <%= city[0] %> </h1>
+        <p>POPULATION:  <%= city[1].population %> </p>
+        <p>LANDMARK:    <%= city[1].landmark %></p>
+        <p>TEMPERATURE:    <%= (9.0/5) * (city[1].weather[:temperature] - 273) + 32 %>℉ </p>
+        <b></b>
+        <p>+---------------------------------------+</p>
+    <% end %>
+<%else %>
+    <p>There are no cities to display.</p>
+<% end%>
